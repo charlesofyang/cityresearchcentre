@@ -3,165 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Disclaimer — City Research Centre</title>
+  <title>Disclaimer & Terms of Use — N City Research</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --ink:     #1a1f2e;
-      --muted:   #6b7280;
-      --accent:  #2d6a4f;
-      --light:   #f4f6f0;
-      --white:   #ffffff;
-      --border:  #e0e5d8;
-    }
+    :root { --ink:#1a1f2e; --muted:#6b7280; --accent:#4a5568; --light:#f4f5f7; --white:#ffffff; --border:#e2e4e9; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--light);
-      color: var(--ink);
-      font-size: 16px;
-      line-height: 1.7;
-    }
-    nav {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1em;
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .nav-logo span {
-      color: var(--muted);
-      font-size: 0.8em;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      margin-left: 8px;
-    }
-    .nav-links { display: flex; gap: 32px; }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 0.9em;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--ink); font-size: 16px; line-height: 1.7; }
 
-    .page-header {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 52px 40px 48px;
-    }
+    nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 40px; width: 40px; object-fit: contain; }
+    .nav-logo-name { font-family: 'DM Serif Display', serif; font-size: 1em; color: var(--ink); }
+    .nav-logo-sub { font-size: 0.72em; color: var(--muted); font-weight: 300; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9em; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+
+    .page-header { background: var(--white); border-bottom: 1px solid var(--border); padding: 52px 40px 48px; }
     .page-header-inner { max-width: 760px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.75em;
-      font-weight: 500;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-    .page-header h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.4em;
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
-    }
+    .section-label { font-size: 0.75em; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .page-header h1 { font-family: 'DM Serif Display', serif; font-size: 2.4em; letter-spacing: -0.5px; margin-bottom: 10px; }
     .page-header p { color: var(--muted); font-weight: 300; }
 
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 52px 40px;
-    }
+    /* Quick summary boxes */
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+    .summary-box { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+    .summary-box-icon { font-size: 1.4em; margin-bottom: 8px; }
+    .summary-box h3 { font-size: 0.88em; font-weight: 600; margin-bottom: 4px; color: var(--ink); }
+    .summary-box p { font-size: 0.8em; color: var(--muted); font-weight: 300; line-height: 1.5; }
 
-    .doc {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 48px;
-    }
+    .container { max-width: 760px; margin: 0 auto; padding: 52px 40px; }
 
-    .doc h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3em;
-      color: var(--accent);
-      margin: 36px 0 10px;
-      padding-top: 36px;
-      border-top: 1px solid var(--border);
-    }
+    .doc { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 48px; }
+    .doc h2 { font-family: 'DM Serif Display', serif; font-size: 1.3em; color: var(--ink); margin: 36px 0 10px; padding-top: 36px; border-top: 1px solid var(--border); }
     .doc h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .doc h3 { font-size: 1em; font-weight: 500; margin: 20px 0 8px; color: var(--ink); }
+    .doc p { font-size: 0.93em; color: #374151; margin-bottom: 14px; font-weight: 300; line-height: 1.75; }
+    .doc ul { margin: 8px 0 16px 20px; }
+    .doc ul li { font-size: 0.9em; color: #374151; margin-bottom: 7px; font-weight: 300; line-height: 1.65; }
 
-    .doc h3 {
-      font-size: 1em;
-      font-weight: 500;
-      margin: 20px 0 8px;
-      color: var(--ink);
-    }
+    /* Highlighted clause boxes */
+    .clause-box { border-radius: 10px; padding: 20px 24px; margin: 20px 0; }
+    .clause-box.yellow { background: #fffbeb; border: 1px solid #fde68a; }
+    .clause-box.blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+    .clause-box.red { background: #fef2f2; border: 1px solid #fecaca; }
+    .clause-box.green { background: #f0fdf4; border: 1px solid #bbf7d0; }
+    .clause-box h3 { font-size: 0.92em; font-weight: 600; margin-bottom: 6px; }
+    .clause-box.yellow h3 { color: #92400e; }
+    .clause-box.blue h3 { color: #1e40af; }
+    .clause-box.red h3 { color: #991b1b; }
+    .clause-box.green h3 { color: #166534; }
+    .clause-box p { font-size: 0.88em; line-height: 1.65; margin-bottom: 0; }
+    .clause-box.yellow p { color: #78350f; }
+    .clause-box.blue p { color: #1e3a8a; }
+    .clause-box.red p { color: #7f1d1d; }
+    .clause-box.green p { color: #14532d; }
 
-    .doc p {
-      font-size: 0.93em;
-      color: #374151;
-      margin-bottom: 14px;
-      font-weight: 300;
-      line-height: 1.75;
-    }
+    .updated { font-size: 0.82em; color: var(--muted); font-style: italic; margin-bottom: 32px; padding-bottom: 24px; border-top: none; border-bottom: 1px solid var(--border); }
 
-    .doc ul {
-      margin: 8px 0 16px 20px;
-    }
-    .doc ul li {
-      font-size: 0.9em;
-      color: #374151;
-      margin-bottom: 7px;
-      font-weight: 300;
-      line-height: 1.65;
-    }
-
-    .updated {
-      font-size: 0.82em;
-      color: var(--muted);
-      font-style: italic;
-      margin-bottom: 32px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    footer {
-      background: var(--ink);
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      padding: 32px 40px;
-      font-size: 0.82em;
-      line-height: 1.8;
-      margin-top: 0;
-    }
-    footer a { color: rgba(255,255,255,0.7); }
-    footer strong { color: rgba(255,255,255,0.9); }
+    footer { background: var(--ink); color: rgba(255,255,255,0.45); padding: 40px; font-size: 0.82em; line-height: 1.9; }
+    .footer-inner { max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
+    .footer-brand img { height: 44px; margin-bottom: 10px; filter: brightness(0) invert(0.6); }
+    .footer-brand-name { color: rgba(255,255,255,0.8); font-weight: 500; }
+    .footer-brand-sub { color: rgba(255,255,255,0.4); font-size: 0.9em; }
+    .footer-links { display: flex; flex-direction: column; gap: 6px; text-align: right; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+    .footer-terms { width: 100%; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.78em; color: rgba(255,255,255,0.3); line-height: 1.6; }
 
     @media (max-width: 600px) {
       nav { padding: 0 20px; }
       .page-header, .container { padding-left: 20px; padding-right: 20px; }
       .doc { padding: 28px 24px; }
       .nav-links { gap: 18px; }
+      .footer-inner { flex-direction: column; }
+      .footer-links { text-align: left; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">City Research Centre <span>Ontario</span></a>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="N City Research Logo">
+    <div>
+      <div class="nav-logo-name">N City Research</div>
+      <div class="nav-logo-sub">Ontario & North America</div>
+    </div>
+  </a>
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="reports.html">Reports</a>
@@ -172,112 +102,145 @@
 <div class="page-header">
   <div class="page-header-inner">
     <p class="section-label">Legal</p>
-    <h1>Disclaimer & Limitations</h1>
-    <p>Please read this document carefully before using or referencing any data published by City Research Centre.</p>
+    <h1>Disclaimer & Terms of Use</h1>
+    <p>Please read carefully before using, sharing, or referencing any data or reports published by N City Research.</p>
   </div>
 </div>
 
 <div class="container">
+
+  <!-- Quick summary -->
+  <div class="summary-grid">
+    <div class="summary-box">
+      <div class="summary-box-icon">🔬</div>
+      <h3>Experimental Data</h3>
+      <p>All indexes are heuristic proxies, not validated measurements of happiness or wellbeing.</p>
+    </div>
+    <div class="summary-box">
+      <div class="summary-box-icon">⚖️</div>
+      <h3>No Liability</h3>
+      <p>N City Research is not liable for any damage, loss, or decisions made based on this data.</p>
+    </div>
+    <div class="summary-box">
+      <div class="summary-box-icon">📢</div>
+      <h3>Free to Share</h3>
+      <p>Reports are free to quote and redistribute with clear attribution to "N City Research" required.</p>
+    </div>
+    <div class="summary-box">
+      <div class="summary-box-icon">👥</div>
+      <h3>Limited Scope</h3>
+      <p>Online data is self-selected and does not represent total city populations.</p>
+    </div>
+  </div>
+
   <div class="doc">
 
-    <p class="updated">Last updated: April 2026</p>
+    <p class="updated">Last updated: April 2026 &nbsp;·&nbsp; N City Research, Ontario, Canada</p>
 
-    <h2>1. Nature of This Project</h2>
-    <p>This project is an independent, non-commercial personal hobby research initiative. It is not affiliated with, endorsed by, or associated with any government body, academic institution, corporation, municipality, or any other organization. The findings, indexes, scores, and observations published as part of this project represent the personal work of an individual researcher and should be interpreted accordingly.</p>
+    <!-- Core Terms -->
+    <h2>1. Nature of Data</h2>
+    <div class="clause-box yellow">
+      <h3>⚠️ Key Statement</h3>
+      <p>All reports published by N City Research provide experimental, heuristic proxies for online sentiment and social activity. These results are not validated measurements of real-world happiness, wellbeing, or quality of life.</p>
+    </div>
+    <p>The indexes produced by N City Research are exploratory and experimental in nature. They are derived from publicly available online content and use proprietary signal detection methods that serve as indirect proxies only. No claim is made that these indexes directly or accurately measure the happiness, satisfaction, mental health, or quality of life of any individual or population.</p>
 
-    <h2>2. No Professional or Official Status</h2>
-    <p>The Ontario Cities Happiness & Vitality Index is not a scientific study, academic paper, or government report. It has not been peer-reviewed, academically validated, or approved by any professional body. The methodology used is exploratory and experimental in nature. Nothing in this project constitutes:</p>
+    <h2>2. Nature of This Project</h2>
+    <p>N City Research is an independent, non-commercial personal research initiative based in Ontario, Canada. It is not affiliated with, endorsed by, or associated with any government body, academic institution, corporation, municipality, or any other organization. All findings represent the personal work of an individual researcher.</p>
+    <p>Nothing in this project constitutes:</p>
     <ul>
       <li>Official measurement of happiness, wellbeing, or quality of life</li>
-      <li>Psychological, sociological, or statistical research findings</li>
+      <li>Psychological, sociological, or peer-reviewed statistical research</li>
       <li>Policy recommendations or government advice</li>
       <li>Legal, financial, investment, or professional guidance of any kind</li>
     </ul>
 
-    <h2>3. Data Source Limitations</h2>
-    <p>All data used in this project is collected from publicly available posts on online community forums and social media platforms via publicly accessible interfaces. The specific platforms, tools, and technical methods used to collect data are not disclosed.</p>
-
-    <h3>3.1 Sample Representativeness</h3>
-    <ul>
-      <li>Social media and online forum users do not represent the general population of any city. These platforms typically skew toward younger, more tech-savvy, and more vocal demographics.</li>
-      <li>Participation in city-based online communities is voluntary and self-selected, which introduces significant selection bias.</li>
-      <li>Residents who do not use social media or online forums — including older adults, non-English speakers, and those without internet access — are not represented in the data.</li>
-      <li>The online communities analysed may attract residents with stronger opinions or grievances, which may not reflect the views of the broader population.</li>
-    </ul>
-
-    <h3>3.2 Sentiment and Activity Signals</h3>
-    <ul>
-      <li>The digital signals used to measure positive sentiment are proprietary proxies only. They do not directly or definitively measure happiness, life satisfaction, mental health, or overall wellbeing.</li>
-      <li>The absence of positive sentiment signals does not indicate unhappiness. People communicate positively in many ways that may not be captured by this methodology.</li>
-      <li>Activity-related signals reflect social activeness only and do not measure community cohesion, social capital, safety, or quality of social life.</li>
-      <li>Communication styles and online behaviour vary across age groups, cultural backgrounds, and communities, which may affect comparability between cities.</li>
-      <li>The proprietary methodology behind the indexes is not fully disclosed. Results should be interpreted with this in mind.</li>
-    </ul>
-
-    <h3>3.3 Volume and Timing</h3>
-    <ul>
-      <li>Each data collection run analyses a snapshot of recent posts at a given point in time. Results may vary significantly between runs due to current events, seasonal patterns, or trending topics.</li>
-      <li>Online communities vary considerably in size and activity level. Smaller communities may produce less statistically reliable results.</li>
-      <li>Data is not weighted or adjusted for community size, city population, or demographic differences between cities.</li>
-    </ul>
-
-    <h3>3.4 No Data on Private Communications</h3>
-    <ul>
-      <li>This project only analyses publicly visible online posts. Private messages, closed groups, and offline communications are not included.</li>
-      <li>The data does not capture the full range of digital or in-person communication by residents of any city.</li>
-    </ul>
-
-    <h2>4. No Defamatory Intent</h2>
-    <p>This project does not intend to defame, disparage, harm, or negatively characterise any city, municipality, community, resident group, or individual. Any ranking or comparison of cities is purely exploratory and is based on publicly available social media data. Lower scores on any index do not imply that residents of a city are less happy, less social, or of lower character in any way.</p>
-    <p>Cities with lower scores may simply have smaller or less active online communities, different communication cultures, or different demographic profiles — none of which reflect on the actual quality of life or happiness of residents.</p>
-
-    <h2>5. No Warranty or Accuracy Guarantee</h2>
-    <p>The data, findings, indexes, and reports published under this project are provided on an "as is" basis, without warranty of any kind, either express or implied. The researcher makes no representations or warranties regarding:</p>
-    <ul>
-      <li>The accuracy, completeness, or reliability of the data</li>
-      <li>The suitability of the methodology for any particular purpose</li>
-      <li>The consistency or reproducibility of results over time</li>
-      <li>The fitness of the index as a measure of any real-world phenomenon</li>
-    </ul>
-    <p>Users of this data do so entirely at their own risk.</p>
-
-    <h2>6. Limitation of Liability</h2>
-    <p>To the fullest extent permitted by applicable law, the researcher, as an individual private citizen, shall not be held responsible or liable for any of the following arising from the use of, reliance on, or misinterpretation of any data, report, index, score, chart, or finding published as part of this project:</p>
+    <h2>3. Limitation of Liability</h2>
+    <div class="clause-box red">
+      <h3>🛡️ Key Statement</h3>
+      <p>All information is provided "as-is" without warranty of any kind. N City Research and its affiliates are not liable for any personal, professional, or financial decisions made based on this data.</p>
+    </div>
+    <p>To the fullest extent permitted by applicable law, N City Research shall not be held responsible or liable for any of the following arising from the use of, reliance on, or misinterpretation of any data, report, index, score, chart, or finding published:</p>
     <ul>
       <li>Any direct, indirect, incidental, special, consequential, or punitive damages of any kind</li>
       <li>Any financial loss, economic loss, loss of income, loss of profit, or loss of business opportunity</li>
-      <li>Any reputational damage, loss of goodwill, or harm to the image of any individual, organisation, or city</li>
+      <li>Any reputational damage or harm to the image of any individual, organisation, or city</li>
       <li>Any physical, psychological, or emotional harm suffered by any person</li>
       <li>Any loss of data, loss of property, or any other tangible or intangible loss</li>
-      <li>Any decisions made by individuals, businesses, investors, governments, or organisations based on this data</li>
+      <li>Any decisions made by individuals, businesses, investors, or governments based on this data</li>
       <li>Any claims arising from a third party's use or redistribution of this data</li>
     </ul>
-    <p>This limitation applies regardless of whether such damages were foreseeable. By accessing, using, sharing, or referencing this project's data or reports, users expressly agree to assume all risk associated with doing so.</p>
+    <p>By accessing, using, sharing, or referencing N City Research data or reports, users expressly agree to assume all risk associated with doing so.</p>
 
-    <h2>7. Social Media Data & Third-Party Terms of Use</h2>
-    <p>Data used in this project is collected exclusively from publicly accessible online content in a manner consistent with the terms of use of the relevant platforms. No private data, login-protected content, or personal user information is collected or published. All data is analysed at an aggregated, anonymised level. No individual user is identified, targeted, tracked, or profiled in this project.</p>
-    <p>The terms of service of online platforms are subject to change. If platform policies restrict this type of data collection in future, data collection practices will be reviewed and adjusted accordingly.</p>
-    <p>The researcher is not affiliated with, endorsed by, or in any way connected to any social media platform or online service from which data is collected.</p>
+    <h2>4. Usage & Attribution</h2>
+    <div class="clause-box green">
+      <h3>✅ Key Statement</h3>
+      <p>This report is free to quote, share, or redistribute. However, clear attribution to "N City Research" is strictly required for all citations, excerpts, or derivative works.</p>
+    </div>
+    <p>When referencing N City Research reports or data, please use one of the following citation formats:</p>
+    <ul>
+      <li><strong>Short form:</strong> Source: N City Research, [Report Name], [Year]</li>
+      <li><strong>Link form:</strong> Subject to N City Research Terms of Use: [URL]</li>
+      <li><strong>Footer form:</strong> Data provided by N City Research — ncityresearch.github.io</li>
+    </ul>
+    <p>Derivative works, analyses, or publications that use N City Research data must clearly state that the original data source is N City Research and that the data represents experimental proxies only, not validated measurements.</p>
+
+    <h2>5. Scope & Representativeness</h2>
+    <div class="clause-box blue">
+      <h3>📊 Key Statement</h3>
+      <p>Online data is self-selected and may not represent the demographics or views of the total population of the cities analysed.</p>
+    </div>
+    <p>All data is collected from publicly visible online community forums. The following scope limitations apply:</p>
+    <ul>
+      <li>Online forum users do not represent the general population of any city</li>
+      <li>Participation is voluntary and self-selected, introducing significant selection bias</li>
+      <li>Residents who do not use online forums — including older adults, non-English speakers, and those without internet access — are not represented</li>
+      <li>Each report analyses a snapshot of recent posts at a given point in time and may not reflect longer-term community sentiment</li>
+      <li>Data is not weighted or adjusted for city population or demographic differences</li>
+      <li>The proprietary methodology behind the indexes is not fully disclosed</li>
+    </ul>
+
+    <h2>6. No Defamatory Intent</h2>
+    <p>N City Research does not intend to defame, disparage, harm, or negatively characterise any city, municipality, community, resident group, or individual. Any ranking or comparison of cities is purely exploratory. Lower scores on any index do not imply that residents of a city are less happy, less social, or of lower character in any way.</p>
+
+    <h2>7. Social Media Data & Third-Party Terms</h2>
+    <p>Data is collected exclusively from publicly accessible online content in a manner consistent with the terms of use of the relevant platforms. No private data, login-protected content, or personal user information is collected or published. All data is analysed at an aggregated, anonymised level. No individual user is identified, targeted, or profiled.</p>
+    <p>N City Research is not affiliated with, endorsed by, or connected to any social media platform or online service from which data is collected.</p>
 
     <h2>8. Suggested Use</h2>
-    <p>This project is best used as one small, informal reference point among many when thinking about community wellbeing. It is most appropriately used:</p>
+    <p>N City Research reports are best used as:</p>
     <ul>
-      <li>As a conversation starter about how digital sentiment might reflect community mood</li>
-      <li>As a supplementary, informal data point alongside official wellbeing surveys and government data</li>
-      <li>As a longitudinal trend indicator — changes over time may be more meaningful than absolute values</li>
+      <li>One informal reference point among many when thinking about community wellbeing</li>
+      <li>A conversation starter about how digital sentiment might reflect community mood</li>
+      <li>A supplementary, informal data point alongside official wellbeing surveys</li>
+      <li>A longitudinal trend indicator — changes over time are more meaningful than absolute values</li>
     </ul>
-    <p>It should not be used as a standalone measure of city happiness, a basis for policy decisions, real estate investment decisions, or any other consequential judgment about a city or its residents.</p>
+    <p>Reports should <strong>not</strong> be used as a standalone measure of city happiness, a basis for policy decisions, real estate investment decisions, or any other consequential judgment about a city or its residents.</p>
 
     <h2>9. Contact & Feedback</h2>
-    <p>The researcher welcomes constructive feedback on the methodology, data collection approach, and findings. Suggestions for improving the accuracy, fairness, and usefulness of the index are always appreciated. Please reach out with questions or concerns before drawing public conclusions from this data.</p>
+    <p>N City Research welcomes constructive feedback on methodology, data collection, and findings. Please reach out with questions or concerns before drawing public conclusions from this data.</p>
 
   </div>
 </div>
 
 <footer>
-  <strong>City Research Centre</strong> — Ontario, Canada<br>
-  Independent, non-commercial community research &nbsp;|&nbsp; Free to access, share, and reference<br>
-  <a href="disclaimer.html">Disclaimer & Limitations</a> &nbsp;·&nbsp; <a href="reports.html">Reports</a>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="N City Research">
+      <div class="footer-brand-name">N City Research</div>
+      <div class="footer-brand-sub">Ontario, Canada &nbsp;·&nbsp; Independent &amp; Non-commercial</div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="reports.html">Reports</a>
+      <a href="disclaimer.html">Disclaimer & Terms</a>
+    </div>
+  </div>
+  <div class="footer-inner">
+    <div class="footer-terms">
+      All reports provided "as-is" without warranty of any kind. N City Research and its affiliates are not liable for any personal, professional, or financial decisions made based on this data. Free to quote or share with clear attribution to "N City Research" required for all citations and derivative works.
+    </div>
+  </div>
 </footer>
 
 </body>

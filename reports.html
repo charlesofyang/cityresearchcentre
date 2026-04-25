@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports — N City Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#1a1f2e; --muted:#6b7280; --accent:#4a5568; --light:#f4f5f7; --white:#ffffff; --border:#e2e4e9; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--ink); font-size: 16px; line-height: 1.7; }
+    nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-img { width: 40px; height: 40px; background: #1a1f2e; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: Arial,sans-serif; font-weight: 700; font-size: 22px; color: white; letter-spacing: -1px; }
+    .nav-logo-name { font-family: 'DM Serif Display', serif; font-size: 1em; color: var(--ink); }
+    .nav-logo-sub { font-size: 0.72em; color: var(--muted); font-weight: 300; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9em; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+
+    .page-header { background: var(--white); border-bottom: 1px solid var(--border); padding: 52px 40px 48px; }
+    .page-header-inner { max-width: 860px; margin: 0 auto; }
+    .section-label { font-size: 0.75em; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .page-header h1 { font-family: 'DM Serif Display', serif; font-size: 2.4em; letter-spacing: -0.5px; margin-bottom: 10px; }
+    .page-header p { color: var(--muted); font-weight: 300; max-width: 520px; }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 52px 40px; }
+
+    .series-title { font-family: 'DM Serif Display', serif; font-size: 1.5em; margin: 48px 0 20px; color: var(--ink); display: flex; align-items: center; gap: 12px; }
+    .series-title:first-of-type { margin-top: 0; }
+    .series-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+    .report-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 28px 32px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 24px; transition: border-color 0.2s, box-shadow 0.2s; }
+    .report-card:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+    .report-card-left { flex: 1; }
+    .report-quarter { font-size: 0.75em; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .report-title { font-family: 'DM Serif Display', serif; font-size: 1.2em; margin-bottom: 6px; }
+    .report-meta { font-size: 0.83em; color: var(--muted); font-weight: 300; }
+    .report-badges { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+    .badge { font-size: 0.75em; padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+    .badge-green { background: #e8f5ee; color: #2d6a4f; }
+    .badge-blue { background: #e8f0fe; color: #3b5bdb; }
+    .report-action { flex-shrink: 0; background: var(--ink); color: var(--white); padding: 10px 22px; border-radius: 6px; text-decoration: none; font-size: 0.88em; font-weight: 500; transition: opacity 0.2s; white-space: nowrap; }
+    .report-action:hover { opacity: 0.82; }
+    .report-action.coming-soon { background: var(--border); color: var(--muted); cursor: default; pointer-events: none; }
+
+    .how-to { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 32px; margin-top: 48px; }
+    .how-to h2 { font-family: 'DM Serif Display', serif; font-size: 1.3em; margin-bottom: 20px; }
+    .how-to-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .how-to-item { display: flex; gap: 12px; align-items: flex-start; }
+    .how-to-icon { font-size: 1.3em; flex-shrink: 0; margin-top: 2px; }
+    .how-to-text h4 { font-size: 0.92em; font-weight: 500; margin-bottom: 3px; }
+    .how-to-text p { font-size: 0.83em; color: var(--muted); font-weight: 300; }
+
+    .disclaimer-banner { background: #f8f9fa; border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-top: 32px; font-size: 0.85em; color: var(--muted); line-height: 1.6; }
+    .disclaimer-banner a { color: var(--ink); font-weight: 500; }
+
+    footer { background: var(--ink); color: rgba(255,255,255,0.45); padding: 40px; font-size: 0.82em; line-height: 1.9; }
+    .footer-inner { max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
+    .footer-brand-logo { width: 44px; height: 44px; background: rgba(255,255,255,0.15); border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-family: Arial,sans-serif; font-weight: 700; font-size: 24px; color: rgba(255,255,255,0.85); letter-spacing: -1px; }
+    .footer-brand-name { color: rgba(255,255,255,0.8); font-weight: 500; }
+    .footer-brand-sub { color: rgba(255,255,255,0.4); font-size: 0.9em; }
+    .footer-links { display: flex; flex-direction: column; gap: 6px; text-align: right; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+    .footer-terms { width: 100%; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.78em; color: rgba(255,255,255,0.3); line-height: 1.6; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 20px; }
+      .page-header, .container { padding-left: 20px; padding-right: 20px; }
+      .report-card { flex-direction: column; align-items: flex-start; }
+      .how-to-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 18px; }
+      .footer-inner { flex-direction: column; }
+      .footer-links { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-img">N</div>
+    <div>
+      <div class="nav-logo-name">N City Research</div>
+      <div class="nav-logo-sub">Ontario & North America</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="reports.html" class="active">Reports</a>
+    <a href="disclaimer.html">Disclaimer</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <p class="section-label">Publications</p>
+    <h1>Quarterly Reports</h1>
+    <p>All reports are free to access, download, and share. Published quarterly across two series — GTA cities and North America Top 10.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- GTA Series -->
+  <div class="series-title">🇨🇦 GTA City Report Series</div>
+
+  <div class="report-card">
+    <div class="report-card-left">
+      <div class="report-quarter">Q1 2026 — Baseline Report</div>
+      <div class="report-title">GTA City Report — Happiness & Vitality Index</div>
+      <div class="report-meta">Published April 2026 &nbsp;·&nbsp; 8 GTA cities &nbsp;·&nbsp; 4,000 posts analysed</div>
+      <div class="report-badges">
+        <span class="badge badge-green">😊 Happiness Index</span>
+        <span class="badge badge-blue">🎉 Vitality Index</span>
+      </div>
+    </div>
+    <a href="happiness_report_20260423_222812.html" class="report-action">View Report →</a>
+  </div>
+
+  <div class="report-card">
+    <div class="report-card-left">
+      <div class="report-quarter">Q2 2026 — Coming July 2026</div>
+      <div class="report-title">GTA City Report — Happiness & Vitality Index</div>
+      <div class="report-meta">Scheduled: July 2026 &nbsp;·&nbsp; 8 GTA cities</div>
+      <div class="report-badges">
+        <span class="badge badge-green">😊 Happiness Index</span>
+        <span class="badge badge-blue">🎉 Vitality Index</span>
+      </div>
+    </div>
+    <a href="#" class="report-action coming-soon">Coming Soon</a>
+  </div>
+
+  <div class="report-card">
+    <div class="report-card-left">
+      <div class="report-quarter">Q3 2026 — Coming October 2026</div>
+      <div class="report-title">GTA City Report — Happiness & Vitality Index</div>
+      <div class="report-meta">Scheduled: October 2026 &nbsp;·&nbsp; 8 GTA cities</div>
+      <div class="report-badges">
+        <span class="badge badge-green">😊 Happiness Index</span>
+        <span class="badge badge-blue">🎉 Vitality Index</span>
+      </div>
+    </div>
+    <a href="#" class="report-action coming-soon">Coming Soon</a>
+  </div>
+
+  <hr class="series-divider">
+
+  <!-- North America Series -->
+  <div class="series-title">🌎 North America Top 10 City Report Series</div>
+
+  <div class="report-card">
+    <div class="report-card-left">
+      <div class="report-quarter">Q1 2026 — Baseline Report</div>
+      <div class="report-title">North America Top 10 — Happiness & Vitality Index</div>
+      <div class="report-meta">New York · Toronto · Boston · Los Angeles · Chicago · Montreal · Vancouver · Washington DC · San Francisco · Ottawa</div>
+      <div class="report-badges">
+        <span class="badge badge-green">😊 Happiness Index</span>
+        <span class="badge badge-blue">🎉 Vitality Index</span>
+      </div>
+    </div>
+    <a href="#" class="report-action coming-soon">Coming Soon</a>
+  </div>
+
+  <div class="report-card">
+    <div class="report-card-left">
+      <div class="report-quarter">Q2 2026 — Coming July 2026</div>
+      <div class="report-title">North America Top 10 — Happiness & Vitality Index</div>
+      <div class="report-meta">Scheduled: July 2026 &nbsp;·&nbsp; 10 North American cities</div>
+      <div class="report-badges">
+        <span class="badge badge-green">😊 Happiness Index</span>
+        <span class="badge badge-blue">🎉 Vitality Index</span>
+      </div>
+    </div>
+    <a href="#" class="report-action coming-soon">Coming Soon</a>
+  </div>
+
+  <!-- How to read -->
+  <div class="how-to">
+    <h2>How to read these reports</h2>
+    <div class="how-to-grid">
+      <div class="how-to-item">
+        <div class="how-to-icon">📈</div>
+        <div class="how-to-text">
+          <h4>Trends matter more than absolutes</h4>
+          <p>Changes between quarterly reports are more meaningful than any single score. Look for consistent movement over time.</p>
+        </div>
+      </div>
+      <div class="how-to-item">
+        <div class="how-to-icon">⚖️</div>
+        <div class="how-to-text">
+          <h4>Two indexes are independent</h4>
+          <p>The Happiness and Vitality indexes are never combined. A city can score high on one and low on the other.</p>
+        </div>
+      </div>
+      <div class="how-to-item">
+        <div class="how-to-icon">🔍</div>
+        <div class="how-to-text">
+          <h4>One signal among many</h4>
+          <p>Use these indexes as one informal reference point, not a definitive measure of any city's quality of life.</p>
+        </div>
+      </div>
+      <div class="how-to-item">
+        <div class="how-to-icon">👥</div>
+        <div class="how-to-text">
+          <h4>Online ≠ everyone</h4>
+          <p>Data reflects online community activity only. Residents who don't participate online are not represented.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="disclaimer-banner">
+    ⚠️ All reports are experimental, heuristic proxies provided for informational purposes only. N City Research accepts no liability for any damage, loss, or harm arising from the use of this data. Free to share with attribution to "N City Research". <a href="disclaimer.html">Read the full disclaimer →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo">N</div>
+      <div class="footer-brand-name">N City Research</div>
+      <div class="footer-brand-sub">Ontario, Canada &nbsp;·&nbsp; Independent &amp; Non-commercial</div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="reports.html">Reports</a>
+      <a href="disclaimer.html">Disclaimer & Terms</a>
+    </div>
+  </div>
+  <div class="footer-inner">
+    <div class="footer-terms">
+      All reports provided "as-is" without warranty. N City Research and its affiliates are not liable for any personal, professional, or financial decisions made based on this data. Free to quote or share with clear attribution to "N City Research" required. Subject to <a href="disclaimer.html" style="color:rgba(255,255,255,0.5)">N City Research Terms of Use</a>.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
